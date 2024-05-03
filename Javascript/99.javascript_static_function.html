@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        /********************************************/
+        function Member(id, name) {
+            this.id = id;
+            this.name = name;
+        }
+
+        Member.prototype = {
+            instanceMethod1: function () {
+                document.write('Member객체.instanceMethod1(): ' + this.id + ', ' + this.name + '<br>');
+            },
+            instanceMethod2() {
+                document.write('Member객체.instanceMethod2(): ' + this.id + ', ' + this.name + '<br>');
+            }
+        }
+
+        Member.prototype.instanceMethod3 = function() {
+            document.write('Member객체.instanceMethod3(): ' + this.id + ', ' + this.name + '<br>');
+        };
+
+        Member.staticMethod1 = function () {
+            document.write('Member.staticMethod1()<br>');
+        };
+        Member.staticMethod2 = function () {
+            document.write('Member.staticMethod2()<br>');
+        };
+
+        /********************************************/
+    </script>
+</head>
+
+<body>
+    <h1>Javascript Static Function</h1>
+    <hr />
+    <script type="text/javascript">
+        /****************instance method호출************/
+        let m1 = new Member('xxx', '엑스');
+        let m2 = new Member('yyy', '와이');
+        m1.instanceMethod1();
+        m1.instanceMethod2();
+        m2.instanceMethod1();
+        m2.instanceMethod2();
+        /****************static method호출************/
+        Member.staticMethod1();
+        Member.staticMethod2();
+
+        document.write(Math.round(34.456) + '<br>');
+        document.write(Math.sqrt(2) + '<br>');
+        document.write(Math.PI);
+    </script>
+</body>
+
+</html>

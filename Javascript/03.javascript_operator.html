@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>javascript operator</h1><hr>
+<script type="text/javascript">
+	console.log('------- ===(값과타입이일치) ------');
+	let str1 = 'KIM';
+	let str2 = 'KIM';
+	let str3 = new String('KIM'); //object 타입
+	console.log(typeof str1);
+	console.log(typeof str2);
+	console.log(typeof str3);
+	if (str1 == str2) {
+		console.log('str1, str2 값이 일치');
+	}
+	if (str1 == str3) {
+		console.log('str1, str3 값이 일치');
+	}
+	if (str1 === str3) {
+		console.log('str1, str3 값과 타입이 일치');
+	}
+	if (str1 !== str3) {
+		console.log('str1, str3 값과 타입이 일치하지 않음');
+	}
+	if (str1 == 'KIM') {
+		console.log('str1, KIM 값이 일치')
+	}
+	if (str1 === 'KIM') {
+		console.log('str1, KIM 값과 타입이 일치')
+	}
+	console.log('-------3항연산자-------------------------');
+	let a = 12;
+	let b = 20;
+	let result1 = (a > b) ? a : b;
+	console.log('result1: ' + result1);
+
+	let result2;
+	(a > b) ? result2 = a: result2 = b;
+	console.log('result2: ' + result2);
+
+	let no = 67;
+	let msg = no > 0 ? '양수' : '음수';
+	console.log('msg: ' + msg);
+	console.log('-------논리형타입으로자동변경------------');
+	//falsy한값(0, null, undefined)
+	let zeroValue = 0;
+	let nullValue = null;
+	let undefinedValue = undefined;
+	
+	console.log('zeroValue: ' + zeroValue);
+	console.log('!zeroValue: ' + !!zeroValue);
+	console.log('nullValue: ' + nullValue);
+	console.log('!nullValue: ' + !!nullValue);
+	console.log('undefinedValue: ' + undefinedValue);
+	console.log('!undefinedValue: ' + !!undefinedValue);
+	
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

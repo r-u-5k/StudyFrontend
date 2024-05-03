@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="kQuery.js"></script>
+	<script type="text/javascript">
+		/*
+		1. function객체를 변수에대입(일급함수)
+		2. function객체를 파라메타데이타로사용
+		3. function객체를 반환
+		*/
+
+		/*********인자로 대입할 함수(변수)*********/
+		function arg_func1() {
+			document.write('--> arg_func1() 실행<br>');
+		}
+
+		function arg_func2() {
+			document.write('--> arg_func2() 실행<br>');
+		}
+
+		/******함수를 인자로 받아서 실행할 함수******/
+		function func3(funcArg) {
+			document.write('--> func3(funcArg) 실행<br>');
+			funcArg();
+		}
+
+		function func4(funcArg1, funcArg2) {
+			document.write('--> func4(funcArg1, funcArg2) 실행<br>');
+			funcArg1();
+			funcArg2();
+		}
+
+		/***********kQuery.js*************/
+		function hello(name, functionArg) {
+			document.write('--> hello(name, functionArg) 실행<br>')
+			let msg = name + '님 안녕하세요.';
+			functionArg(msg);
+		}
+
+		function forEach(array, userCallBackFunction) {
+			for (let i = 0; i < array.length; i++) {
+				userCallBackFunction(i, array[i]);
+			}
+		}
+		/***********************************/
+	</script>
+</head>
+
+<body>
+	<h1>자바스크립트함수2</h1>
+	<hr>
+	<script type="text/javascript">
+		/*
+		<<javascript api document>
+		https://www.w3schools.com
+		*/
+		document.write('--------------------1. 함수를 인자로 대입---------------------------<br>');
+		func3(arg_func1);
+
+		document.write('------------------2. 익명 함수를 인자로 대입-----------------------<br>');
+		func3(function () {
+			document.write('--> func3(funcArg)에 인자로 대입한 익명 함수 실행<br>');
+		})
+
+		func4(function () {
+			document.write('--> func4(funcArg1, funcArg2)에 첫 번째 인자로 대입한 익명 함수 실행<br>');
+		}, function () {
+			document.write('--> func4(funcArg1, funcArg2)에 두 번째 인자로 대입한 익명 함수 실행<br>');
+		});
+
+		func3(() => {
+			document.write('--> func3(funcArg)에 인자로 대입한 익명 함수 실행<br>');
+		})
+
+		func4(() => {
+			document.write('--> func4(funcArg1, funcArg2)에 첫 번째 인자로 대입한 익명 함수 실행<br>');
+		}, () => {
+			document.write('--> func4(funcArg1, funcArg2)에 두 번째 인자로 대입한 익명 함수 실행<br>');
+		});
+
+		document.write('----------------kQuery에서 제공하는 function 사용----------------<br>');
+		hello('김경호', (msg) => {
+			document.write('--> 인자로 대입한 익명 함수 실행<br>')
+			document.write('--> hello function에서 익명 함수 실행 시 대입한 인자: ' + msg + '<br>');
+		})
+		let nameArray = ['김경미', '김경수', '김경우', '김경양', '김경가'];
+
+		forEach(nameArray, function(index, item) {
+			document.write(item + '<br>');
+		})
+
+		nameArray.forEach(name => {
+			document.write(name + '<br>');
+		});
+
+		let tot = 0;
+		forEach([1, 2, 3, 4, 5, 6], (i, num) => {
+			tot += num;
+			document.write('num: ' + num + '<br>');
+		});
+		document.write('tot: ' + tot + '<br>');
+
+	</script>
+</body>
+
+</html>

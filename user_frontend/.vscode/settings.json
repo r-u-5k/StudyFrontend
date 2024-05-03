@@ -1,0 +1,6 @@
+{
+    "[html]": {
+        "editor.defaultFormatter": null
+    },
+    "eslint.format.enable": true
+}

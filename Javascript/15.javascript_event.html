@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function displayMsg(msg) {
+			document.getElementById('result').innerHTML += msg + '<br>';
+		};
+
+		function inlineEventHandler(e) {
+			let msg = 'inlineEventHandler --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+			displayMsg(msg);
+		};
+
+		function button2EventHandler(e) {
+			let msg = 'button2EventHandler --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+			displayMsg(msg);
+		};
+
+		function button3EventHandler(e) {
+			let msg = 'button3EventHandler --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+			displayMsg(msg);
+		};
+
+		/*
+		이벤트 등록 함수(실행 시점: DOM Tree 로딩 완료 시점에 실행)
+			1. body 맨 마지막
+			2. window.onload 이벤트 발생 시 호출 
+		*/
+		function event_regist() {
+			alert('>>>> 실행시점 DOM Tree 로딩 완료 후 랜더링 전 시점에 실행');
+			/*** DOM LEVEL - 0 ***/
+			/****** CASE 1 ******/
+			let button2Element = document.getElementById('button2');
+			button2Element.onclick = button2EventHandler;
+			/****** CASE 2 ******/
+			button2Element.onclick = (e) => {
+				let msg = 'button2EventHandler 익명함수 --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+				displayMsg(msg);
+			}
+			/*
+			https://www.w3schools.com/
+			*/
+
+			/*** DOM LEVEL - 2 ***/
+			let button3Element = document.getElementById('button3');
+			button3Element.onclick = button3EventHandler;
+			button3Element.addEventListener("click", (e) => {
+				let msg = 'button3Element.addEventListener 익명함수1 --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+				displayMsg(msg);
+			});
+			button3Element.addEventListener("click", (e) => {
+				let msg = 'button3Element.addEventListener 익명함수2 --> 이벤트 타겟[Source]: ' + e.target + ', 이벤트 타입: ' + e.type;
+				displayMsg(msg);
+			});
+
+			/*
+			<< element1의 하위노드만검색 >>
+			element1.getElementById();
+			element1.getElementsByTagName();
+			
+			<< docuemnt 의 하위노드만검색[돔트리전체] >>
+			document.getElementById();
+			document.getElementsByTagName();
+			*/
+			let movieRankOrderedListElement = document.getElementById('movie_rank');
+			let movieList = movieRankOrderedListElement.getElementsByTagName('li');
+			Array.from(movieList).forEach(element => {
+				element.addEventListener("click", (e) => {
+					let clickElement = e.target;
+					displayMsg('클릭한 영화: ' + clickElement.innerHTML);
+					if (clickElement.style.background == 'gray') {
+						clickElement.style.background = 'white';
+					} else {
+						clickElement.style.background = 'gray';
+					}
+				})
+			});
+
+		};
+		/*
+		window.onload 이벤트발생시점
+		   - DOM Tree 생성직후 렌더링전에호출  이벤트등록
+		
+		*/
+		window.onload = event_regist; // event_regist()를 넣으면 undefined를 넣는 것과 같음
+
+	</script>
+</head>
+
+<body>
+	<h1>javascript event</h1>
+	<hr />
+	<form name="f">
+		<input name="button1" type="button" value="event model[inline]" onclick="inlineEventHandler(event);" />
+		<input id="button2" name="button2" type="button" value="event model[DOM level0]" />
+		<input id="button3" name="button3" type="button" value="event model[DOM level2]" />
+		<input id="button4" name="button4" type="button" value="event remove" />
+	</form>
+	<ol id='movie_rank'>
+		<li>더 퍼스트 슬램덩크</li>
+		<li>아바타</li>
+		<li>영웅</li>
+		<li>교섭</li>
+		<li>앤트맨과 와스프</li>
+		<li>장화신은 고양이</li>
+	</ol>
+	<ol id='drama_rank'>
+		<li>도깨비</li>
+		<li>사랑과전쟁</li>
+		<li>나너</li>
+		<li>우리나라</li>
+		<li>대한민국</li>
+	</ol>
+	<div id="result">
+
+	</div>
+
+</body>
+
+</html>

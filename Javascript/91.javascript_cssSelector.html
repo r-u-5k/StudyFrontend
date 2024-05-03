@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>CSS 선택자를 이용한 HTML DOM Element 검색</title>
+	<style type="text/css">
+		p {
+			color: brown;
+		}
+
+		div {
+			font-weight: 700;
+		}
+	</style>
+	<script type="text/javascript">
+		/*
+		https://www.w3schools.com/jsref/met_document_queryselector.asp
+			1. Document.querySelector() -> 1개 반환
+			  - The querySelector() method returns 
+				 the first element that matches a 
+				 specified CSS selector(s) in the document.
+			2. Document.querySelectorAll() -> 전부 반환
+			  - The querySelectorAll() method returns 
+				all elements in the document 
+				that matches a specified CSS selector(s), as a static NodeList object.
+		*/
+
+		/************** 두 코드는 같은 동작임 **************/
+		window.onload = function (e) {
+			/*****dom tree생성후 랜더링전 dom node찾기******/
+		};
+		window.addEventListener('load', (e) => {
+			/*****dom tree생성후 랜더링전 dom node찾기******/
+			let divElement = document.querySelector('div'); // 맨 처음 div 하나만 선택
+			divElement.style.border = '3px dotted gray';
+
+			let divElementList = document.querySelectorAll('div');
+			divElementList.forEach((e) => {
+				e.style.backgroundColor = 'lightblue';
+
+			let pElement = document.querySelector('p'); // 맨 처음 p 하나만 선택
+			pElement.style.backgroundColor = 'green';
+
+			let pElementList = document.querySelectorAll('p');
+			pElementList.forEach((e) => {
+				e.style.border = '2px solid black';
+			})
+			})
+		});
+		
+
+
+	</script>
+</head>
+
+<body style="font-size: 15pt">
+	<h3>querySelector</h3>
+	<div>
+		CSS 선택자를 이용한 HTML Element 검색 div
+	</div>
+	<div>
+		CSS 선택자를 이용한 HTML Element 검색 div
+	</div>
+	<div>
+		CSS 선택자를 이용한 HTML Element 검색 div
+	</div>
+	<h3>querySelectorAll</h3>
+	<p>
+		CSS 선택자를 이용한 HTML Element 검색 p
+	</p>
+	<p>
+		CSS 선택자를 이용한 HTML Element 검색 p
+	</p>
+	<p>
+		CSS 선택자를 이용한 HTML Element 검색 p
+	</p>
+
+
+
+</body>
+
+</html>

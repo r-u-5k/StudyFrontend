@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		/*
+		생성자함수
+		*/
+
+
+
+		/****************학생객체3개****************/
+		/*
+		JSON
+		*/
+		const studentObject1 = {
+			id: 'xxx',
+			name: 'sim',
+			kor: 90,
+			eng: 95,
+			math: 99,
+			tot: 0,
+			avg: 0.0,
+			calculateTot: function () {
+				this.tot = this.kor + this.eng + this.math
+			},
+			calculateAvg() {
+				this.avg = this.tot / 3;
+			},
+			toString() {
+				return `toString() -> ${this.id}, ${this.name}, ${this.kor}, ${this.eng}, ${this.math}, ${this.tot}, ${this.avg}`;
+			}
+		}
+		const studentObject2 = {
+			id: 'yyy',
+			name: 'aim',
+			kor: 34,
+			eng: 67,
+			math: 89,
+			tot: 0,
+			avg: 0.0,
+			calculateTot: function () {
+				this.tot = this.kor + this.eng + this.math
+			},
+			calculateAvg() {
+				this.avg = this.tot / 3;
+			},
+			toString() {
+				return `toString() -> ${this.id}, ${this.name}, ${this.kor}, ${this.eng}, ${this.math}, ${this.tot}, ${this.avg}`;
+			}
+		}
+		const studentObject3 = {
+			id: 'zzz',
+			name: 'dim',
+			kor: 99,
+			eng: 75,
+			math: 80,
+			tot: 0,
+			avg: 0.0,
+			calculateTot: function () {
+				this.tot = this.kor + this.eng + this.math
+			},
+			calculateAvg() {
+				this.avg = this.tot / 3;
+			},
+			toString() {
+				return `toString() -> ${this.id}, ${this.name}, ${this.kor}, ${this.eng}, ${this.math}, ${this.tot}, ${this.avg}`;
+			}
+		}
+
+		let studentArray = [studentObject1, studentObject2, studentObject3];
+
+
+	</script>
+</head>
+
+<body>
+	<h1>생성자 함수1</h1>
+	<hr>
+	<script type="text/javascript">
+		document.write('--------------student 리스트1---------------------<br>');
+		studentArray.forEach(function (student) {
+			student.calculateTot();
+			student.calculateAvg();
+			document.write(student.toString() + '<br>');
+		});
+
+		document.write('--------------student 리스트2---------------------<br>');
+		studentArray.forEach(element => {
+			element.calculateTot();
+			element.calculateAvg();
+			document.write(element + '<br>');
+		});
+
+	</script>
+</body>
+
+</html>
