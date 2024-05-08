@@ -33,7 +33,7 @@ export default function ContentJSX() {
                     {guest.guestNo}, {guest.guestName}
                 </li>
                 <li>
-                    {num}은 {num % 2 == 0 ? '짝수' : '홀수'}입니다.
+                    {num}은 {num % 2 === 0 ? '짝수' : '홀수'}입니다.
                 </li>
             </ul>
         </div>

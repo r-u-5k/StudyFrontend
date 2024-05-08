@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 function ContentUseState() {
     const [count, setCount] = useState(0);
-    console.log('component update');
-    
+
     const onIncrease = (e) => {
         setCount(count + 1);
         console.log(count);

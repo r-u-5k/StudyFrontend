@@ -12,7 +12,7 @@ function ContentProps({id, name, address, gender, age, phone}) {
                 <li>성별: {gender}</li>
                 <li>나이: {age}</li>
                 <li>{`${age}세 ${gender}성 ${name}`}</li>
-                <li>전화번호: {phone[1]}</li>
+                <li>전화번호: {phone[0]}, {phone[1]}</li>
             </ul>
         </div>
     );

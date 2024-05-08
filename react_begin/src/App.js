@@ -6,6 +6,8 @@ import ContentEvent from './component/ContentEvent';
 import ContentChild from './component/ContentChild';
 import ContentProps from './component/ContentProps';
 import ContentUseState from './component/ContentUseState';
+import ContentUseStateForm1 from './component/ContentUseStateForm1';
+import ContentUseStateForm2 from './component/ContentUseStateForm2';
 
 function ChildComp() {
     return <div>Child Component</div>;
@@ -30,8 +32,15 @@ function App() {
                 <ChildComp />
                 {ChildComp()}
             </ContentChild>
+            <hr />
             <ContentProps id={id} name={name} age={age} address={address} gender={'남'} phone={phone} />
+            <hr />
             <ContentUseState />
+            <hr />
+            <ContentUseStateForm1 />
+            <hr />
+            <ContentUseStateForm2 />
+            <hr />
             <Footer />
         </div>
     );
