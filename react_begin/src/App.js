@@ -5,6 +5,7 @@ import ContentJSX from './component/ContentJSX';
 import ContentEvent from './component/ContentEvent';
 import ContentChild from './component/ContentChild';
 import ContentProps from './component/ContentProps';
+import ContentUseState from './component/ContentUseState';
 
 function ChildComp() {
     return <div>Child Component</div>;
@@ -30,6 +31,7 @@ function App() {
                 {ChildComp()}
             </ContentChild>
             <ContentProps id={id} name={name} age={age} address={address} gender={'남'} phone={phone} />
+            <ContentUseState />
             <Footer />
         </div>
     );
