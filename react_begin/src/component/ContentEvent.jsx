@@ -9,6 +9,7 @@ function ContentEvent() {
 
     return (
         <>
+        <h3 style={{ margin: 0, background: 'yellow', color: 'green' }}>이벤트 처리</h3><br />
             <input type="button" value="버튼1" onClick={(e) => {
                 console.log(e);
                 console.log(e.target);

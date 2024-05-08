@@ -3,6 +3,11 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import ContentJSX from './component/ContentJSX';
 import ContentEvent from './component/ContentEvent';
+import ContentChild from './component/ContentChild';
+
+function ChildComp() {
+    return <div>Child Component</div>;
+}
 
 function App() {
     return (
@@ -14,6 +19,11 @@ function App() {
             <ContentEvent />
             <hr />
             <Footer />
+            <hr />
+            <ContentChild>
+                <ChildComp />
+                {ChildComp()}
+            </ContentChild>
         </div>
     );
 }
