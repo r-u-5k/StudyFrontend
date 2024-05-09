@@ -8,6 +8,7 @@ import ContentProps from './component/ContentProps';
 import ContentUseState from './component/ContentUseState';
 import ContentUseStateForm1 from './component/ContentUseStateForm1';
 import ContentUseStateForm2 from './component/ContentUseStateForm2';
+import ContentUseRef from './component/ContentUseRef';
 
 function ChildComp() {
     return <div>Child Component</div>;
@@ -41,6 +42,9 @@ function App() {
             <hr />
             <ContentUseStateForm2 />
             <hr />
+            <ContentUseRef />
+            <hr />
+
             <Footer />
         </div>
     );
